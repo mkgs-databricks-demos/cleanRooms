@@ -20,6 +20,9 @@ variables:
   style: 
     description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
     default: collaborator
+  serverless_environment_version:
+    description: The serverless environment for which to run the workflows, notebook tasks, etc. 
+    default: 4
 
 targets:
   # this target may be altered to run in development mode, otherwise its primarily for matthew.giglia@databricks.com's updates.  To run the demo yourself, the recommendation is to use the creator or collab targets depending if you are the creator of the clean room, or an invited collaborator.  
