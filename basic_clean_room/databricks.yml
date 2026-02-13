@@ -24,10 +24,11 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://fe-sandbox-cr-collab.cloud.databricks.com
+      host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
     variables:
-      catalog: cr_collab_catalog
-      schema: dev
+      catalog: mkgs_dev
+      schema: clean
+
   prod:
     mode: production
     workspace:
