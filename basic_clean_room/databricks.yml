@@ -40,9 +40,12 @@ targets:
 # update the details for the creator or collab workspace as required for your workspace, catalog, schema and run_as_user 
 
   creator: 
-    # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean" permission for the run as user to execute.  
+    # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean room" permission for the run as user to execute.  
+    # Pre-req: create a workspace folder called "creator" at the path /Workspace/creator and ensure that the run-as user has read and write permissions to the folder.  The notebook codeand deployement state files will be deployed here for the workflow to execute.   
     mode: production
     default: false
+    presets:
+      name_prefix: "[creator] "
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
@@ -52,9 +55,12 @@ targets:
       run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
       style: creator
 
+  # Pre-req: create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
   collab: 
     mode: production
     default: false
+    presets:
+      name_prefix: "[collab] "
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
