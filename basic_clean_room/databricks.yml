@@ -15,13 +15,15 @@ variables:
   schema:
     description: The schema to use
     default: clean_room_sample_data
+  run_as_user:
+    description: The user or service principal for which the workflows and pipelines should be run as. 
+  style: 
+    description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
+    default: collaborator
 
 targets:
+  # this target may be altered to run in development mode, otherwise its primarily for matthew.giglia@databricks.com's updates.  To run the demo yourself, the recommendation is to use the creator or collab targets depending if you are the creator of the clean room, or an invited collaborator.  
   dev:
-    # The default target uses 'mode: development' to create a development copy.
-    # - Deployed resources get prefixed with '[dev my_user_name]'
-    # - Any job schedules and triggers are paused by default.
-    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
     mode: development
     default: true
     workspace:
@@ -29,8 +31,13 @@ targets:
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
+      run_as_user: matthew.giglia@databricks.com
+      style: creator
+
+# update the details for the creator or collab workspace as required for your workspace, catalog, schema and run_as_user 
 
   creator: 
+    # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean" permission for the run as user to execute.  
     mode: production
     default: false
     workspace:
@@ -38,6 +45,8 @@ targets:
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
+      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      style: creator
 
   collab: 
     mode: production
@@ -47,3 +56,6 @@ targets:
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
+      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      style: collaborator
+

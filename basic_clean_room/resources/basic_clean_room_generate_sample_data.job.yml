@@ -15,10 +15,6 @@ resources:
           notebook_task:
             notebook_path: ../src/sample_data_generation/create sample data.ipynb
             source: WORKSPACE
-            base_parameters:
-              volume_use: "${resources.volumes.ncpdp_landing_volume.name}"
-              volume_sub_path: "${var.volume_sub_path}"
-              ncpdp_file_types: "${var.ncpdp_file_types}"
           max_retries: 3
           min_retry_interval_millis: 60000
           retry_on_timeout: true
