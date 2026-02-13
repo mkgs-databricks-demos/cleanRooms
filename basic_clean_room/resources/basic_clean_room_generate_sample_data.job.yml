@@ -2,6 +2,8 @@ resources:
   jobs:
     generate_clean_room_sample_data:
       name: Basic Clean Room - Generate Sample Data
+      
+      description: A one time run job to generate some sample health care data to use in a clean room demo.  The notebook generates a star schema with a visits table, plus dimensions for patient, provider, and diagnosis.  
 
       parameters:
         - name: catalog_use
@@ -9,8 +11,16 @@ resources:
         - name: schema_use
           default: ${resources.schemas.basic_clean_room_schema.name}
 
-      tasks:
+      environments:
+        - environment_key: primary
+          spec:
+            environment_version: ${var.serverless_environment_version}
+        - environment_key: vector_search
+          spec:
+            environment_version: ${var.serverless_environment_version}
+            dependencies: [databricks-vectorsearch]
 
+      tasks:
         - task_key: generate_sample_data
           notebook_task:
             notebook_path: ../src/sample_data_generation/create sample data.ipynb
@@ -20,3 +30,4 @@ resources:
           retry_on_timeout: true
           disable_auto_optimization: false
           environment_key: primary
+
