@@ -1,0 +1,249 @@
+version: 1.1
+
+source: mkgs.collab_clean_room_sample_data.visits
+
+joins:
+  - name: patients
+    source: mkgs.collab_clean_room_sample_data.patients
+    "on": source.patient_id = patients.patient_id
+  - name: doctors
+    source: mkgs.collab_clean_room_sample_data.doctors
+    "on": source.doctor_id = doctors.doctor_id
+  - name: hospitals
+    source: mkgs.collab_clean_room_sample_data.hospitals
+    "on": source.hospital_id = hospitals.hospital_id
+  - name: diagnoses
+    source: mkgs.collab_clean_room_sample_data.diagnoses
+    "on": source.diagnosis_id = diagnoses.diagnosis_id
+
+comment: "Healthcare analytics metric view tracking patient visits across hospitals,\
+  \ doctors, and diagnoses"
+
+dimensions:
+  - name: visit_date
+    expr: visit_date
+    comment: Date when the patient visit occurred
+    display_name: Visit Date
+    format:
+      type: date
+      date_format: locale_short_month
+      leading_zeros: false
+    synonyms:
+      - date of visit
+      - appointment date
+  - name: visit_month
+    expr: "date_trunc('month', visit_date)"
+    comment: Month of the patient visit
+    display_name: Visit Month
+    format:
+      type: date
+      date_format: locale_short_month
+      leading_zeros: false
+    synonyms:
+      - month of visit
+      - visit month
+  - name: visit_year
+    expr: year(visit_date)
+    comment: Year of the patient visit
+    display_name: Visit Year
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+      hide_group_separator: true
+      abbreviation: none
+    synonyms:
+      - year of visit
+  - name: patient_name
+    expr: patients.name
+    comment: Full name of the patient
+    display_name: Patient Name
+    synonyms:
+      - patient full name
+  - name: patient_gender
+    expr: patients.gender
+    comment: Gender of the patient (M/F)
+    display_name: Patient Gender
+    synonyms:
+      - gender
+      - patient sex
+  - name: patient_age
+    expr: "floor(datediff(current_date(), patients.dob) / 365.25)"
+    comment: Current age of the patient in years
+    display_name: Patient Age
+    synonyms:
+      - age
+      - patient age in years
+  - name: doctor_name
+    expr: doctors.name
+    comment: Full name of the attending doctor
+    display_name: Doctor Name
+    synonyms:
+      - physician name
+      - attending doctor
+  - name: doctor_specialty
+    expr: doctors.specialty
+    comment: Medical specialty of the doctor
+    display_name: Doctor Specialty
+    synonyms:
+      - specialty
+      - medical specialty
+      - physician specialty
+  - name: hospital_name
+    expr: hospitals.name
+    comment: Name of the hospital facility
+    display_name: Hospital Name
+    synonyms:
+      - facility name
+      - hospital facility
+  - name: hospital_city
+    expr: hospitals.city
+    comment: City where the hospital is located
+    display_name: Hospital City
+    synonyms:
+      - city
+      - hospital location
+  - name: diagnosis_code
+    expr: diagnoses.code
+    comment: ICD-10 diagnosis code
+    display_name: Diagnosis Code
+    synonyms:
+      - ICD-10 code
+      - diagnosis ICD code
+  - name: diagnosis_description
+    expr: diagnoses.description
+    comment: Human-readable description of the diagnosis
+    display_name: Diagnosis Description
+    synonyms:
+      - diagnosis name
+      - condition description
+
+measures:
+  - name: total_visits
+    expr: count(visit_id)
+    comment: Total number of patient visits
+    display_name: Total Visits
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+      abbreviation: compact
+    synonyms:
+      - visit count
+      - number of visits
+  - name: unique_patients
+    expr: count(distinct patient_id)
+    comment: Number of distinct patients
+    display_name: Unique Patients
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+      abbreviation: compact
+    synonyms:
+      - patient count
+      - distinct patients
+  - name: unique_doctors
+    expr: count(distinct doctor_id)
+    comment: Number of distinct doctors
+    display_name: Unique Doctors
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+    synonyms:
+      - doctor count
+      - distinct doctors
+  - name: unique_hospitals
+    expr: count(distinct hospital_id)
+    comment: Number of distinct hospitals
+    display_name: Unique Hospitals
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+    synonyms:
+      - hospital count
+      - distinct hospitals
+  - name: unique_diagnoses
+    expr: count(distinct diagnosis_id)
+    comment: Number of distinct diagnoses
+    display_name: Unique Diagnoses
+    format:
+      type: number
+      decimal_places:
+        type: exact
+        places: 0
+    synonyms:
+      - diagnosis count
+      - distinct diagnoses
+  - name: visits_per_patient
+    expr: MEASURE(total_visits) / MEASURE(unique_patients)
+    comment: Average number of visits per patient
+    display_name: Visits per Patient
+    format:
+      type: number
+      decimal_places:
+        type: max
+        places: 2
+    synonyms:
+      - average visits per patient
+      - avg visits per patient
+  - name: visits_per_doctor
+    expr: MEASURE(total_visits) / MEASURE(unique_doctors)
+    comment: Average number of visits per doctor
+    display_name: Visits per Doctor
+    format:
+      type: number
+      decimal_places:
+        type: max
+        places: 2
+    synonyms:
+      - average visits per doctor
+      - avg visits per doctor
+  - name: earliest_visit_date
+    expr: min(visit_date)
+    comment: Date of the earliest visit in the dataset
+    display_name: Earliest Visit Date
+    format:
+      type: date
+      date_format: locale_short_month
+      leading_zeros: false
+    synonyms:
+      - first visit date
+      - minimum visit date
+  - name: latest_visit_date
+    expr: max(visit_date)
+    comment: Date of the most recent visit in the dataset
+    display_name: Latest Visit Date
+    format:
+      type: date
+      date_format: locale_short_month
+      leading_zeros: false
+    synonyms:
+      - most recent visit date
+      - maximum visit date
+
+materialization:
+  schedule: EVERY 7 DAYS
+  mode: relaxed
+  materialized_views:
+    - name: baseline
+      type: unaggregated
+    - name: daily_visits
+      type: aggregated
+      dimensions:
+        - visit_date
+        - visit_month
+        - visit_year
+        - hospital_city
+        - doctor_specialty
+      measures:
+        - total_visits
+        - unique_patients
+        - unique_doctors

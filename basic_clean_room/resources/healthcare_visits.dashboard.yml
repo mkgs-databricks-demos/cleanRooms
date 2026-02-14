@@ -1,0 +1,9 @@
+resources:
+  dashboards:
+    clean_room_sample_data_bi:
+      display_name: "Healthcare Visit Analytics"
+      warehouse_id: ${resources.warehouses.aibi_warehouse.id}
+      file_path: "../src/Healthcare Visit Analytics.lvdash.json"
+      embed_credentials: true
+      dataset_catalog: ${var.catalog}
+      dataset_schema: ${resources.schemas.basic_clean_room_schema.name}

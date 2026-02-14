@@ -10,4 +10,4 @@ resources:
       warehouse_type: "PRO"
       permissions:
         - level: "CAN_MANAGE"
-          user_name: "${bundle.run_as}"
+          user_name: "${var.run_as_user}"
