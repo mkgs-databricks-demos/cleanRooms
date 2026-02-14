@@ -16,7 +16,7 @@ variables:
     description: The schema to use
     default: clean_room_sample_data
   run_as_user:
-    description: The user or service principal for which the workflows and pipelines should be run as. 
+    description: The service principal name (application ID) or user email for which the workflows and pipelines should be run as. 
   style: 
     description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
     default: collaborator
@@ -32,6 +32,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/Users/${var.run_as_user}/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      user_name: ${var.run_as_user}
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
@@ -50,7 +52,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
-    run_as: ${var.run_as_user}
+    run_as: 
+      service_principal_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
@@ -66,7 +69,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
-    run_as: ${var.run_as_user}
+    run_as:
+      service_principal_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
