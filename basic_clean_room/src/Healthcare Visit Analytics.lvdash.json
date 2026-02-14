@@ -2,8 +2,10 @@
   "datasets": [
     {
       "name": "dataset1",
-      "displayName": "mv_visits",
-      "asset_name": "mkgs.collab_clean_room_sample_data.mv_visits"
+      "displayName": "Data Insights Generator",
+      "asset_name": "mkgs.collab_clean_room_sample_data.mv_visits",
+      "catalog": "mkgs",
+      "schema": "collab_clean_room_sample_data"
     }
   ],
   "pages": [
