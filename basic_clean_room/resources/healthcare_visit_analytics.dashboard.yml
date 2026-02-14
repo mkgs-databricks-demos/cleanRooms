@@ -2,6 +2,6 @@ resources:
 	dashboards:
 		healthcare_visit_analytics:
 			display_name: "Healthcare Visit Analytics"
-			warehouse_id: "${var.warehouse_id}"
+			warehouse_id: "${resources.sql_warehouses.aibi_warehouse.id}"
 			file_path: "../src/healthcare_visit_analytics.lvdash.json"
 			embed_credentials: true
