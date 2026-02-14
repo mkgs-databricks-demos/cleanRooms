@@ -31,6 +31,7 @@ targets:
     default: true
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
+      root_path: /Workspace/Users/${var.run_as_user}/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
@@ -49,6 +50,7 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
+    run_as: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
@@ -64,6 +66,7 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
+    run_as: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
