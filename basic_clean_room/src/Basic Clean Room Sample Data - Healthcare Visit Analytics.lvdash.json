@@ -3,7 +3,7 @@
     {
       "name": "dataset1",
       "displayName": "Data Insights Generator",
-      "asset_name": "mv_visits",
+      "asset_name": "mv_visits"
     }
   ],
   "pages": [
