@@ -1,7 +1,7 @@
 resources:
   dashboards:
     clean_room_sample_data_bi:
-      display_name: "Healthcare Visit Analytics"
+      display_name: "Cleam Room Sample Data - Healthcare Visit Analytics"
       warehouse_id: ${resources.sql_warehouses.aibi_warehouse.id}
       file_path: "../src/Healthcare Visit Analytics.lvdash.json"
       embed_credentials: true
