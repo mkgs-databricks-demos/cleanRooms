@@ -4,8 +4,8 @@
       "name": "dataset1",
       "displayName": "Data Insights Generator",
       "asset_name": "mkgs.collab_clean_room_sample_data.mv_visits",
-      "catalog": "mkgs",
-      "schema": "collab_clean_room_sample_data"
+      "catalog": "mkgs_dev",
+      "schema": "dev_matthew_giglia_clean_room_sample_data"
     }
   ],
   "pages": [
