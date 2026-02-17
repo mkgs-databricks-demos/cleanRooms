@@ -43,3 +43,12 @@ resources:
           disable_auto_optimization: false
           environment_key: primary
 
+        - task_key: refresh_dashboard
+          depends_on:
+            - task: metric_veiws
+          run_job_task:
+            job_id: ${resources.dashboards.clean_room_sample_data_bi.id}
+          max_retries: 1
+
+        
+
