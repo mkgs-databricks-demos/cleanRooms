@@ -33,7 +33,7 @@ resources:
 
         - task_key: metric_veiws
           depends_on: 
-            - task: generate_sample_data
+            - task_key: generate_sample_data
           notebook_task:
             notebook_path: ../src/sample_data_generation/create metric views.ipynb
             source: WORKSPACE
@@ -45,7 +45,7 @@ resources:
 
         - task_key: refresh_dashboard
           depends_on:
-            - task: metric_veiws
+            - task_key: metric_veiws
           run_job_task:
             job_id: ${resources.dashboards.clean_room_sample_data_bi.id}
           max_retries: 1
