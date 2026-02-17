@@ -3,7 +3,9 @@
     {
       "name": "70aa7719",
       "displayName": "mv_visits",
-      "asset_name": "mv_visits"
+      "asset_name": "mkgs_dev.dev_matthew_giglia_clean_room_sample_data.mv_visits",
+      "catalog": "mkgs_dev",
+      "schema": "dev_matthew_giglia_clean_room_sample_data"
     }
   ],
   "pages": [
@@ -11,29 +13,6 @@
       "name": "page1",
       "displayName": "Overview",
       "layout": [
-        {
-          "widget": {
-            "name": "text_box1",
-            "multilineTextboxSpec": {
-              "lines": [
-                "This dashboard provides a comprehensive overview of patient visits across our healthcare network. The data spans the entire year of 2025, tracking **1,428 visits** from **751 unique patients** across **3 hospitals** and **15 medical specialties**.\n",
-                "\n",
-                "**Key Insights:**\n",
-                "\n",
-                "- Patients average **1.90 visits** per year\n",
-                "- **Neurology** and **Pediatrics** are the busiest specialties\n",
-                "- Visit volume remains consistent throughout the year (\\~120 visits/month)\n",
-                "- **City Medical Center** handles the highest patient volume"
-              ]
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 5,
-            "width": 12,
-            "height": 4
-          }
-        },
         {
           "widget": {
             "name": "table1",
@@ -128,7 +107,7 @@
           },
           "position": {
             "x": 0,
-            "y": 21,
+            "y": 17,
             "width": 12,
             "height": 6
           }
@@ -478,7 +457,7 @@
           },
           "position": {
             "x": 0,
-            "y": 9,
+            "y": 5,
             "width": 6,
             "height": 6
           }
@@ -546,7 +525,7 @@
           },
           "position": {
             "x": 6,
-            "y": 9,
+            "y": 5,
             "width": 6,
             "height": 6
           }
@@ -614,7 +593,7 @@
           },
           "position": {
             "x": 0,
-            "y": 15,
+            "y": 11,
             "width": 4,
             "height": 6
           }
@@ -679,7 +658,7 @@
           },
           "position": {
             "x": 4,
-            "y": 15,
+            "y": 11,
             "width": 4,
             "height": 6
           }
@@ -744,7 +723,7 @@
           },
           "position": {
             "x": 8,
-            "y": 15,
+            "y": 11,
             "width": 4,
             "height": 6
           }
@@ -763,7 +742,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "width": 6,
+            "width": 7,
             "height": 2
           }
         },
@@ -772,14 +751,14 @@
             "name": "524ceb58",
             "multilineTextboxSpec": {
               "lines": [
-                "![](https://cdn.bfldr.com/9AYANS2F/at/9pc8rcmckp2rn28vf3zs7f/clean-rooms-lockup-full-color.svg?auto=webp)"
+                "<img src=\"https://cdn.bfldr.com/9AYANS2F/at/9pc8rcmckp2rn28vf3zs7f/clean-rooms-lockup-full-color.svg?auto=webp\" width=\"90%\" height=\"90%\" style=\"object-fit: contain;\" />"
               ]
             }
           },
           "position": {
-            "x": 6,
+            "x": 7,
             "y": 0,
-            "width": 6,
+            "width": 5,
             "height": 2
           }
         }
@@ -2207,8 +2186,8 @@
         "dark": "#11171C"
       },
       "widgetBorderColor": {
-        "light": "#FFFFFF",
-        "dark": "#11171C"
+        "light": "#E0E0E0",
+        "dark": "#424242"
       },
       "fontColor": {
         "light": "#11171C",
