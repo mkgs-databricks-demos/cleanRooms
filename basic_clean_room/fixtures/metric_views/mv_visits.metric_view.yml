@@ -70,7 +70,7 @@ dimensions:
       - patient sex
   - name: patient_age
     expr: "floor(datediff(visit_date, patients.dob) / 365.25)"
-    comment: Current age of the patient in years
+    comment: Age of the patient at the time of visit in years
     display_name: Patient Age
     synonyms:
       - age
