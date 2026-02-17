@@ -1,19 +1,19 @@
 version: 1.1
 
-source: visits
+source: "{catalog}.{schema}.visits"
 
 joins:
   - name: patients
-    source: patients
+    source: "{catalog}.{schema}.patients"
     "on": source.patient_id = patients.patient_id
   - name: doctors
-    source: doctors
+    source: "{catalog}.{schema}.doctors"
     "on": source.doctor_id = doctors.doctor_id
   - name: hospitals
-    source: hospitals
+    source: "{catalog}.{schema}.hospitals"
     "on": source.hospital_id = hospitals.hospital_id
   - name: diagnoses
-    source: diagnoses
+    source: "{catalog}.{schema}.diagnoses"
     "on": source.diagnosis_id = diagnoses.diagnosis_id
 
 comment: "Healthcare analytics metric view tracking patient visits across hospitals,\
