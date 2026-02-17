@@ -31,3 +31,15 @@ resources:
           disable_auto_optimization: false
           environment_key: primary
 
+        - task_key: metric_veiws
+          depends_on: 
+            - task: generate_sample_data
+          notebook_task:
+            notebook_path: ../src/sample_data_generation/create metric views.ipynb
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 60000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          environment_key: primary
+
