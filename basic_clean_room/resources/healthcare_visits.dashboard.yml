@@ -3,7 +3,7 @@ resources:
     clean_room_sample_data_bi:
       display_name: "Basic Clean Room Sample Data - Healthcare Visits Analytics"
       warehouse_id: ${resources.sql_warehouses.aibi_warehouse.id}
-      file_path: "../src/dashboards/${bundle.target}/Basic Clean Room Sample Data - Healthcare Visit Analytics.lvdash.json"
+      file_path: "../src/dashboards/Basic Clean Room Dashboard.lvdash.json"
       embed_credentials: true
       dataset_catalog: ${var.catalog}
       dataset_schema: ${resources.schemas.basic_clean_room_schema.name}
