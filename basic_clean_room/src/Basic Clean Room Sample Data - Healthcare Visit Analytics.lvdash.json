@@ -1,8 +1,8 @@
 {
   "datasets": [
     {
-      "name": "dataset1",
-      "displayName": "Data Insights Generator",
+      "name": "70aa7719",
+      "displayName": "mv_visits",
       "asset_name": "mv_visits"
     }
   ],
@@ -16,21 +16,20 @@
             "name": "text_box1",
             "multilineTextboxSpec": {
               "lines": [
-                "## Healthcare Visits Analytics\n",
-                "\n",
                 "This dashboard provides a comprehensive overview of patient visits across our healthcare network. The data spans the entire year of 2025, tracking **1,428 visits** from **751 unique patients** across **3 hospitals** and **15 medical specialties**.\n",
                 "\n",
                 "**Key Insights:**\n",
-                "* Patients average **1.90 visits** per year\n",
-                "* **Neurology** and **Pediatrics** are the busiest specialties\n",
-                "* Visit volume remains consistent throughout the year (~120 visits/month)\n",
-                "* **City Medical Center** handles the highest patient volume"
+                "\n",
+                "- Patients average **1.90 visits** per year\n",
+                "- **Neurology** and **Pediatrics** are the busiest specialties\n",
+                "- Visit volume remains consistent throughout the year (\\~120 visits/month)\n",
+                "- **City Medical Center** handles the highest patient volume"
               ]
             }
           },
           "position": {
             "x": 0,
-            "y": 3,
+            "y": 5,
             "width": 12,
             "height": 4
           }
@@ -42,7 +41,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "visit_date",
@@ -105,15 +104,6 @@
                   },
                   {
                     "fieldName": "patient_age",
-                    "format": {
-                      "type": "number-plain",
-                      "abbreviation": "none",
-                      "decimalPlaces": {
-                        "type": "exact",
-                        "places": 0
-                      },
-                      "hideGroupSeparator": true
-                    },
                     "displayName": "Age"
                   },
                   {
@@ -138,7 +128,7 @@
           },
           "position": {
             "x": 0,
-            "y": 19,
+            "y": 21,
             "width": 12,
             "height": 6
           }
@@ -150,7 +140,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -186,7 +176,7 @@
           },
           "position": {
             "x": 0,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -198,7 +188,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_patients)",
@@ -234,7 +224,7 @@
           },
           "position": {
             "x": 2,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -246,7 +236,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_doctors)",
@@ -282,7 +272,7 @@
           },
           "position": {
             "x": 4,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -294,7 +284,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_hospitals)",
@@ -330,7 +320,7 @@
           },
           "position": {
             "x": 6,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -342,7 +332,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(visits_per_patient)",
@@ -378,7 +368,7 @@
           },
           "position": {
             "x": 8,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -390,7 +380,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_diagnoses)",
@@ -426,7 +416,7 @@
           },
           "position": {
             "x": 10,
-            "y": 0,
+            "y": 2,
             "width": 2,
             "height": 3
           }
@@ -438,7 +428,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "visit_month",
@@ -488,7 +478,7 @@
           },
           "position": {
             "x": 0,
-            "y": 7,
+            "y": 9,
             "width": 6,
             "height": 6
           }
@@ -500,7 +490,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "doctor_specialty",
@@ -556,7 +546,7 @@
           },
           "position": {
             "x": 6,
-            "y": 7,
+            "y": 9,
             "width": 6,
             "height": 6
           }
@@ -568,7 +558,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "hospital_name",
@@ -624,7 +614,7 @@
           },
           "position": {
             "x": 0,
-            "y": 13,
+            "y": 15,
             "width": 4,
             "height": 6
           }
@@ -636,7 +626,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -689,7 +679,7 @@
           },
           "position": {
             "x": 4,
-            "y": 13,
+            "y": 15,
             "width": 4,
             "height": 6
           }
@@ -701,7 +691,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "patient_gender",
@@ -754,9 +744,43 @@
           },
           "position": {
             "x": 8,
-            "y": 13,
+            "y": 15,
             "width": 4,
             "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "83449f5b",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Healthcare Visit Analytics \n",
+                "\n",
+                "### Clean Room Sample Data"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "524ceb58",
+            "multilineTextboxSpec": {
+              "lines": [
+                "![](https://cdn.bfldr.com/9AYANS2F/at/9pc8rcmckp2rn28vf3zs7f/clean-rooms-lockup-full-color.svg?auto=webp)"
+              ]
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 0,
+            "width": 6,
+            "height": 2
           }
         }
       ],
@@ -772,9 +796,9 @@
             "name": "filter_hospital",
             "queries": [
               {
-                "name": "dashboards/01f1097c4b6b1f13ae594ce1dbf9ab6e/datasets/01f1097c4b6c15efbd1ee0d778cb1c69_hospital_name",
+                "name": "dashboards/01f10babdcbf1118917cd039d94704a0/datasets/01f10bb084591797bfb1e2e83c70fa7b_hospital_name",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "hospital_name",
@@ -795,25 +819,12 @@
                 "title": "Select Hospital",
                 "showTitle": true
               },
-              "disallowAll": true,
-              "selection": {
-                "defaultSelection": {
-                  "values": {
-                    "dataType": "STRING",
-                    "values": [
-                      {
-                        "value": "Children's Hospital"
-                      }
-                    ]
-                  }
-                }
-              },
               "widgetType": "filter-single-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "hospital_name",
-                    "queryName": "dashboards/01f1097c4b6b1f13ae594ce1dbf9ab6e/datasets/01f1097c4b6c15efbd1ee0d778cb1c69_hospital_name"
+                    "queryName": "dashboards/01f10babdcbf1118917cd039d94704a0/datasets/01f10bb084591797bfb1e2e83c70fa7b_hospital_name"
                   }
                 ]
               }
@@ -833,7 +844,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -881,7 +892,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_patients)",
@@ -929,7 +940,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_doctors)",
@@ -977,7 +988,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_diagnoses)",
@@ -1043,7 +1054,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "visit_month",
@@ -1105,7 +1116,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "doctor_specialty",
@@ -1173,7 +1184,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -1238,7 +1249,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "patient_gender",
@@ -1303,7 +1314,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "doctor_specialty",
@@ -1403,7 +1414,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "diagnosis_description",
@@ -1495,7 +1506,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "diagnosis_description",
@@ -1577,9 +1588,9 @@
             "name": "filter_doctor",
             "queries": [
               {
-                "name": "dashboards/01f1097c4b6b1f13ae594ce1dbf9ab6e/datasets/01f1097c4b6c15efbd1ee0d778cb1c69_doctor_name",
+                "name": "dashboards/01f10babdcbf1118917cd039d94704a0/datasets/01f10bb084591797bfb1e2e83c70fa7b_doctor_name",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "doctor_name",
@@ -1600,25 +1611,12 @@
                 "title": "Select Doctor",
                 "showTitle": true
               },
-              "disallowAll": true,
-              "selection": {
-                "defaultSelection": {
-                  "values": {
-                    "dataType": "STRING",
-                    "values": [
-                      {
-                        "value": "Dr. Adams"
-                      }
-                    ]
-                  }
-                }
-              },
               "widgetType": "filter-single-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "doctor_name",
-                    "queryName": "dashboards/01f1097c4b6b1f13ae594ce1dbf9ab6e/datasets/01f1097c4b6c15efbd1ee0d778cb1c69_doctor_name"
+                    "queryName": "dashboards/01f10babdcbf1118917cd039d94704a0/datasets/01f10bb084591797bfb1e2e83c70fa7b_doctor_name"
                   }
                 ]
               }
@@ -1638,7 +1636,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -1686,7 +1684,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_patients)",
@@ -1734,7 +1732,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(unique_diagnoses)",
@@ -1782,7 +1780,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(visits_per_patient)",
@@ -1848,7 +1846,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "visit_month",
@@ -1910,7 +1908,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "measure(total_visits)",
@@ -1975,7 +1973,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "hospital_name",
@@ -2043,7 +2041,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "patient_gender",
@@ -2108,7 +2106,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "dataset1",
+                  "datasetName": "70aa7719",
                   "fields": [
                     {
                       "name": "diagnosis_description",
@@ -2200,7 +2198,39 @@
   ],
   "uiSettings": {
     "theme": {
-      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+      "canvasBackgroundColor": {
+        "light": "#FFFFFF",
+        "dark": "#11171C"
+      },
+      "widgetBackgroundColor": {
+        "light": "#FFFFFF",
+        "dark": "#11171C"
+      },
+      "widgetBorderColor": {
+        "light": "#FFFFFF",
+        "dark": "#11171C"
+      },
+      "fontColor": {
+        "light": "#11171C",
+        "dark": "#E8ECF0"
+      },
+      "selectionColor": {
+        "light": "#2272B4",
+        "dark": "#8ACAFF"
+      },
+      "visualizationColors": [
+        "#077A9D",
+        "#FFAB00",
+        "#00A972",
+        "#FF3621",
+        "#8BCAE7",
+        "#AB4057",
+        "#99DDB4",
+        "#FCA4A1",
+        "#919191",
+        "#BF7080"
+      ],
+      "widgetHeaderAlignment": "LEFT"
     },
     "applyModeEnabled": false
   }
