@@ -3,9 +3,9 @@
     {
       "name": "70aa7719",
       "displayName": "mv_visits",
-      "asset_name": "mkgs_dev.dev_matthew_giglia_clean_room_sample_data.mv_visits",
-      "catalog": "mkgs_dev",
-      "schema": "dev_matthew_giglia_clean_room_sample_data"
+      "asset_name": "mkgs.creator_clean_room_sample_data.mv_visits",
+      "catalog": "mkgs",
+      "schema": "creator_clean_room_sample_data"
     }
   ],
   "pages": [
