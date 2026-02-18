@@ -22,6 +22,9 @@ variables:
     default: clean_room_sample_data
   run_as_user:
     description: The service principal name (application ID) or user email for which the workflows and pipelines should be run as. 
+  higher_level_service_principal:
+    description: The service principal name (application ID) for higher level deployments.  Comment this out if you are not using a service_principal for deployments above the dev target.
+    default: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
   style: 
     description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
     default: collaborator
@@ -62,7 +65,7 @@ targets:
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
-      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      run_as_user: ${var.higher_level_service_principal}
       style: creator
 
   # Pre-req: create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
@@ -79,6 +82,6 @@ targets:
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
-      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      run_as_user: ${var.higher_level_service_principal}
       style: collaborator
 

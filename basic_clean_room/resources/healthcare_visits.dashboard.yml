@@ -7,6 +7,15 @@ resources:
       embed_credentials: false
       dataset_catalog: ${var.catalog}
       dataset_schema: ${resources.schemas.basic_clean_room_schema.name}
+      permissions:
+        - service_principal_name: ${var.higher_level_service_principal}
+          level: CAN_MANAGE   
+        - service_principal_name: ${var.higher_level_service_principal}
+          level: CAN_EDIT
+        - service_principal_name: ${var.higher_level_service_principal}
+          level: CAN_RUN
+        - group_name:  account users
+          level: CAN_RUN
       serialized_dashboard: |
         {
           "datasets": [
