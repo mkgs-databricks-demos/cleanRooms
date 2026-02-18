@@ -1,19 +1,19 @@
 version: 1.1
 
-source: mkgs.collab_clean_room_sample_data.visits
+source: "{catalog}.{schema}.visits"
 
 joins:
   - name: patients
-    source: mkgs.collab_clean_room_sample_data.patients
+    source: "{catalog}.{schema}.patients"
     "on": source.patient_id = patients.patient_id
   - name: doctors
-    source: mkgs.collab_clean_room_sample_data.doctors
+    source: "{catalog}.{schema}.doctors"
     "on": source.doctor_id = doctors.doctor_id
   - name: hospitals
-    source: mkgs.collab_clean_room_sample_data.hospitals
+    source: "{catalog}.{schema}.hospitals"
     "on": source.hospital_id = hospitals.hospital_id
   - name: diagnoses
-    source: mkgs.collab_clean_room_sample_data.diagnoses
+    source: "{catalog}.{schema}.diagnoses"
     "on": source.diagnosis_id = diagnoses.diagnosis_id
 
 comment: "Healthcare analytics metric view tracking patient visits across hospitals,\
@@ -69,8 +69,8 @@ dimensions:
       - gender
       - patient sex
   - name: patient_age
-    expr: "floor(datediff(current_date(), patients.dob) / 365.25)"
-    comment: Current age of the patient in years
+    expr: "floor(datediff(visit_date, patients.dob) / 365.25)"
+    comment: Age of the patient at the time of visit in years
     display_name: Patient Age
     synonyms:
       - age

@@ -31,3 +31,26 @@ resources:
           disable_auto_optimization: false
           environment_key: primary
 
+        - task_key: metric_veiws
+          depends_on: 
+            - task_key: generate_sample_data
+          notebook_task:
+            notebook_path: ../src/sample_data_generation/create metric views.ipynb
+            source: WORKSPACE
+          max_retries: 3
+          min_retry_interval_millis: 60000
+          retry_on_timeout: true
+          disable_auto_optimization: false
+          environment_key: primary
+
+        # # The following task will refresh the deployed dashboard, however the dashboard's .lvdash.json must be edited outside of Databricks in a file editor for the metric view's catalog and schema before it can be deployed.  Each taret has its own version of the dashboard.  eventually metric views will be a first class citizen in AI/BI.  this is a temporary workaround.  
+        # - task_key: refresh_dashboard
+        #   depends_on:
+        #     - task_key: metric_veiws
+        #   dashboard_task:
+        #     dashboard_id: ${resources.dashboards.clean_room_sample_data_bi.id}
+        #     warehouse_id: ${resources.sql_warehouses.aibi_warehouse.id}
+        #   max_retries: 1
+
+        
+

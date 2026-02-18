@@ -8,10 +8,10 @@ include:
   - resources/*.yml
   - resources/*/*.yml
 
-sync:
-  exclude:
-    - src/*.lvdash.json
-    - src/*/.lvdash.json
+# sync:
+#   exclude:
+#     - src/*.lvdash.json
+#     - src/*/*.lvdash.json
 
 # Variable declarations. These variables are assigned in the dev/prod targets below.
 variables:
