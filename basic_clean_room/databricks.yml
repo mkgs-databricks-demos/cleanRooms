@@ -60,8 +60,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
-    run_as: 
-      service_principal_name: ${var.run_as_user}
+    # run_as: 
+    #   service_principal_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
@@ -77,8 +77,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
-    run_as:
-      service_principal_name: ${var.run_as_user}
+    # run_as:
+    #   service_principal_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data

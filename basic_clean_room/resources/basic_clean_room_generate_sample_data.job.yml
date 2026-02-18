@@ -10,6 +10,8 @@ resources:
           default: ${var.catalog}
         - name: schema_use
           default: ${resources.schemas.basic_clean_room_schema.name}
+      
+      run_as: ${var.run_as_user}
 
       environments:
         - environment_key: primary
