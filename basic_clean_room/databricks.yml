@@ -60,6 +60,7 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
+    # #run_as set at the job level as AI/BI dashboards can not be deployed by a different user than the run as user. 
     # run_as: 
     #   service_principal_name: ${var.run_as_user}
     variables:
@@ -77,7 +78,8 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
-    # run_as:
+    # #run_as set at the job level as AI/BI dashboards can not be deployed by a different user than the run as user. 
+    # run_as: 
     #   service_principal_name: ${var.run_as_user}
     variables:
       catalog: mkgs
