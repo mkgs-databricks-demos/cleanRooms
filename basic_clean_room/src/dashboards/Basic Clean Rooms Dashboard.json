@@ -3,7 +3,7 @@
     {
       "name": "70aa7719",
       "displayName": "mv_visits",
-      "asset_name": "mkgs.collab_clean_room_sample_data.mv_visits"
+      "asset_name": "${var.catalog}.${resources.schemas.basic_clean_room_schema.name}.mv_visits"
     }
   ],
   "pages": [

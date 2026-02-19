@@ -22,6 +22,9 @@ variables:
     default: clean_room_sample_data
   run_as_user:
     description: The service principal name (application ID) or user email for which the workflows and pipelines should be run as. 
+  higher_level_service_principal:
+    description: The service principal name (application ID) for higher level deployments.  Comment this out if you are not using a service_principal for deployments above the dev target.
+    default: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
   style: 
     description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
     default: collaborator
@@ -37,8 +40,11 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/Users/${var.run_as_user}/.bundle/${bundle.name}/${bundle.target}
-    run_as:
-      user_name: ${var.run_as_user}
+    resources:
+      jobs:
+        generate_clean_room_sample_data:
+          run_as:
+            user_name: ${var.run_as_user}
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
@@ -49,7 +55,10 @@ targets:
 
   creator: 
     # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean room" permission for the run as user to execute.  
-    # Pre-req: create a workspace folder called "creator" at the path /Workspace/creator and ensure that the run-as user has read and write permissions to the folder.  The notebook codeand deployement state files will be deployed here for the workflow to execute.   
+    # Pre-req: 
+      # - create a workspace folder called "creator" at the path /Workspace/creator and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflow to execute.  
+      # - to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+      # - if not using a service principal, comment out the resources: jobs: run_as: service_princial_name, and uncomment the one for user_name and adjust accordingly for your user name.  
     mode: production
     default: false
     presets:
@@ -57,15 +66,23 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/creator/.bundle/${bundle.name}/${bundle.target}
-    run_as: 
-      service_principal_name: ${var.run_as_user}
+    resources:
+      jobs:
+        generate_clean_room_sample_data:
+          run_as:
+            service_principal_name: ${var.run_as_user}
+            # user_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
-      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      run_as_user: ${var.higher_level_service_principal}
+      # run_as_user: matthew.giglia@databricks.com
       style: creator
 
-  # Pre-req: create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
+  # Pre-req: 
+    # - create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
+    # - to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+    # - if not using a service principal, comment out the resources: jobs: run_as: service_princial_name, and uncomment the one for user_name and adjust accordingly for your user name.
   collab: 
     mode: production
     default: false
@@ -74,11 +91,16 @@ targets:
     workspace:
       host: https://fe-vm-mkgs-databricks-demos.cloud.databricks.com/
       root_path: /Workspace/collab/.bundle/${bundle.name}/${bundle.target}
-    run_as:
-      service_principal_name: ${var.run_as_user}
+    resources:
+      jobs:
+        generate_clean_room_sample_data:
+          run_as:
+            service_principal_name: ${var.run_as_user}
+            # user_name: ${var.run_as_user}
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
-      run_as_user: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
+      run_as_user: ${var.higher_level_service_principal}
+      # run_as_user: matthew.giglia@databricks.com
       style: collaborator
 
