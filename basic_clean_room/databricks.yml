@@ -56,8 +56,9 @@ targets:
   creator: 
     # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean room" permission for the run as user to execute.  
     # Pre-req: 
-      # create a workspace folder called "creator" at the path /Workspace/creator and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflow to execute.  
-      # to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+      # - create a workspace folder called "creator" at the path /Workspace/creator and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflow to execute.  
+      # - to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+      # - if not using a service principal, comment out the resources: jobs: run_as: service_princial_name, and uncomment the one for user_name and adjust accordingly for your user name.  
     mode: production
     default: false
     presets:
@@ -79,8 +80,9 @@ targets:
       style: creator
 
   # Pre-req: 
-    # create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
-    # to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+    # - create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
+    # - to run as a service principal, create the service principal and capture its application id to use and set it in the defaults above or override below with higher_level_service_principal: <application_id>  
+    # - if not using a service principal, comment out the resources: jobs: run_as: service_princial_name, and uncomment the one for user_name and adjust accordingly for your user name.
   collab: 
     mode: production
     default: false
