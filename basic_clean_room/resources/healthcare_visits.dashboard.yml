@@ -6,9 +6,6 @@ resources:
       embed_credentials: ${var.dashboard_embed_credentials}
       dataset_catalog: ${var.catalog}
       dataset_schema: ${resources.schemas.basic_clean_room_schema.name}
-      permissions:
-        - group_name:  account users
-          level: CAN_RUN
       serialized_dashboard: |
         {
           "datasets": [
