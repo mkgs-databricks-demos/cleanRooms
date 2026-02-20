@@ -45,13 +45,18 @@ targets:
         generate_clean_room_sample_data:
           run_as:
             user_name: ${var.run_as_user}
+      dashboards:
+        clean_room_sample_data_bi:
+          permissions:
+            - user_name: ${var.run_as_user}
+              level: CAN_MANAGE   
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
       run_as_user: matthew.giglia@databricks.com
       style: creator
 
-# update the details for the creator or collab workspace as required for your workspace, catalog, schema and run_as_user 
+# update the details for the creator or collab workspace as required for your workspace, catalog, schema and run_as_user.  recommended to create a service principal with use catalog and create schema on the target catalog like would be done in a production environment.  
 
   creator: 
     # the primary use of this target is to run the job that will create the clean room using the Databricks Python SDK.  Must have "create clean room" permission for the run as user to execute.  
@@ -72,9 +77,17 @@ targets:
           run_as:
             service_principal_name: ${var.run_as_user}
             # user_name: ${var.run_as_user}
+      dashboards:
+        clean_room_sample_data_bi:
+          permissions:
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE  
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
+      higher_level_service_principal: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
       run_as_user: ${var.higher_level_service_principal}
       # run_as_user: matthew.giglia@databricks.com
       style: creator
@@ -97,9 +110,17 @@ targets:
           run_as:
             service_principal_name: ${var.run_as_user}
             # user_name: ${var.run_as_user}
+      dashboards:
+        clean_room_sample_data_bi:
+          permissions:
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE  
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
+      higher_level_service_principal: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
       run_as_user: ${var.higher_level_service_principal}
       # run_as_user: matthew.giglia@databricks.com
       style: collaborator
