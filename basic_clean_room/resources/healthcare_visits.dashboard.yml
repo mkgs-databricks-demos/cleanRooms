@@ -3,7 +3,7 @@ resources:
     clean_room_sample_data_bi:
       display_name: "Basic Clean Room Sample Data - Healthcare Visits Analytics"
       warehouse_id: ${resources.sql_warehouses.aibi_warehouse.id}
-      embed_credentials: true
+      embed_credentials: ${var.dashboard_embed_credentials}
       dataset_catalog: ${var.catalog}
       dataset_schema: ${resources.schemas.basic_clean_room_schema.name}
       permissions:

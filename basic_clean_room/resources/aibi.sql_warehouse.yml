@@ -8,6 +8,3 @@ resources:
       max_num_clusters: 1
       min_num_clusters: 1
       warehouse_type: "PRO"
-      permissions:
-        - level: "CAN_MANAGE"
-          user_name: "${var.run_as_user}"

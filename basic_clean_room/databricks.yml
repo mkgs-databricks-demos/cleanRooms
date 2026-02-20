@@ -31,6 +31,9 @@ variables:
   serverless_environment_version:
     description: The serverless environment for which to run the workflows, notebook tasks, etc. 
     default: 4
+  dashboard_embed_credentials:
+    description: Set to true if the dashboard should use the owner's credentials, or false if the user's credentials should be used to run the dashboard and access Unity Catalog assets.  
+    default: false
 
 targets:
   # this target may be altered to run in development mode, otherwise its primarily for matthew.giglia@databricks.com's updates.  To run the demo yourself, the recommendation is to use the creator or collab targets depending if you are the creator of the clean room, or an invited collaborator.  
@@ -50,6 +53,11 @@ targets:
           permissions:
             - user_name: ${var.run_as_user}
               level: CAN_MANAGE   
+      sql_warehouses:
+        aibi_warehouse:
+          permissions:
+            - user_name: ${var.run_as_user}
+              level: CAN_MANAGE     
     variables:
       catalog: mkgs_dev
       schema: clean_room_sample_data
@@ -80,10 +88,19 @@ targets:
       dashboards:
         clean_room_sample_data_bi:
           permissions:
+            - group_name:  account users
+              level: CAN_READ
             - service_principal_name: ${var.run_as_user}
               level: CAN_MANAGE
             # - user_name: ${var.run_as_user}
             #   level: CAN_MANAGE  
+      sql_warehouses:
+        aibi_warehouse:
+          permissions:
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
@@ -91,6 +108,7 @@ targets:
       run_as_user: ${var.higher_level_service_principal}
       # run_as_user: matthew.giglia@databricks.com
       style: creator
+      dashboard_embed_credentials: true
 
   # Pre-req: 
     # - create a workspace folder called "collab" at the path /Workspace/collab and ensure that the run-as user has read and write permissions to the folder.  The notebook code and deployement state files will be deployed here for the workflows to execute. 
@@ -113,10 +131,19 @@ targets:
       dashboards:
         clean_room_sample_data_bi:
           permissions:
+            - group_name:  account users
+              level: CAN_READ
             - service_principal_name: ${var.run_as_user}
               level: CAN_MANAGE
             # - user_name: ${var.run_as_user}
             #   level: CAN_MANAGE  
+      sql_warehouses:
+        aibi_warehouse:
+          permissions:
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE
     variables:
       catalog: mkgs
       schema: clean_room_sample_data
@@ -124,4 +151,5 @@ targets:
       run_as_user: ${var.higher_level_service_principal}
       # run_as_user: matthew.giglia@databricks.com
       style: collaborator
+      dashboard_embed_credentials: true
 
