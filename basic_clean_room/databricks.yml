@@ -25,15 +25,15 @@ variables:
   higher_level_service_principal:
     description: The service principal name (application ID) for higher level deployments.  Comment this out if you are not using a service_principal for deployments above the dev target.
     default: 47c0365e-b1af-429c-b56d-07cfb18b5dc7
-  style: 
-    description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
-    default: collaborator
   serverless_environment_version:
     description: The serverless environment for which to run the workflows, notebook tasks, etc. 
     default: 4
   dashboard_embed_credentials:
     description: Set to true if the dashboard should use the owner's credentials, or false if the user's credentials should be used to run the dashboard and access Unity Catalog assets.  
     default: false
+  style: 
+    description: "Which type of clean room tasks should be run-- values are: [creator, collaborator]"
+    default: collaborator
 
 targets:
   # this target may be altered to run in development mode, otherwise its primarily for matthew.giglia@databricks.com's updates.  To run the demo yourself, the recommendation is to use the creator or collab targets depending if you are the creator of the clean room, or an invited collaborator.  
