@@ -805,6 +805,18 @@ resources:
                         "title": "Select Hospital",
                         "showTitle": true
                       },
+                      "selection": {
+                        "defaultSelection": {
+                          "values": {
+                            "dataType": "STRING",
+                            "values": [
+                              {
+                                "value": "Childern's Hospital"
+                              }
+                            ]
+                          }
+                        }
+                      },
                       "widgetType": "filter-single-select",
                       "encodings": {
                         "fields": [
@@ -1596,6 +1608,18 @@ resources:
                       "frame": {
                         "title": "Select Doctor",
                         "showTitle": true
+                      },
+                      "selection": {
+                        "defaultSelection": {
+                          "values": {
+                            "dataType": "STRING",
+                            "values": [
+                              {
+                                "value": "Dr. Adams"
+                              }
+                            ]
+                          }
+                        }
                       },
                       "widgetType": "filter-single-select",
                       "encodings": {
