@@ -811,7 +811,7 @@ resources:
                             "dataType": "STRING",
                             "values": [
                               {
-                                "value": "Childern's Hospital"
+                                "value": "Children's Hospital"
                               }
                             ]
                           }
