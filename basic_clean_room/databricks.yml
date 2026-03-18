@@ -153,3 +153,42 @@ targets:
       style: collaborator
       dashboard_embed_credentials: true
 
+  collab_hls_fde: 
+    mode: production
+    default: false
+    presets:
+      name_prefix: "[collab] "
+    workspace:
+      host: https://fevm-hls-fde.cloud.databricks.com/
+      root_path: /Workspace/.bundle/${bundle.name}/${bundle.target}
+    resources:
+      jobs:
+        generate_clean_room_sample_data:
+          run_as:
+            service_principal_name: ${var.run_as_user}
+            # user_name: ${var.run_as_user}
+      dashboards:
+        clean_room_sample_data_bi:
+          permissions:
+            - group_name:  account users
+              level: CAN_READ
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE  
+      sql_warehouses:
+        aibi_warehouse:
+          permissions:
+            - service_principal_name: ${var.run_as_user}
+              level: CAN_MANAGE
+            # - user_name: ${var.run_as_user}
+            #   level: CAN_MANAGE
+    variables:
+      catalog: hls_fde
+      schema: clean_room_sample_data
+      higher_level_service_principal: acf021b4-87c6-44ff-b3d7-45c59d63fe4d
+      run_as_user: ${var.higher_level_service_principal}
+      # run_as_user: matthew.giglia@databricks.com
+      style: collaborator
+      dashboard_embed_credentials: true
+
